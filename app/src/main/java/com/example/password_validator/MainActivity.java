@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-   //TextView v1;
+   TextView Check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
                  if(isValid.ValidationStage2(passwordTest) < 2) {
                      Check.setText("The password strength is not qualified for safety, Bad.");
-                   // v1.setTextColor(Color.RED);
+                     Check.setTextColor(Color.RED);
 
                  } else {
                      Check.setText("The password strength is qualified for safety, Good");
-                    // v1.setTextColor(Color.GREEN);
+                     Check.setTextColor(Color.BLUE);
                     }
                 }
             }
