@@ -16,45 +16,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //connect to the Button, editText,TextView;
+        //connect to the Button, editText,TextView and generate the password validator
         Button validate = (Button)findViewById(R.id.validate);
         final TextView Check = (TextView)findViewById(R.id.Check);
         final EditText Password = (EditText)findViewById(R.id.Password);
 
-        //Build password validator
         final theValidator isValid = new theValidator();
-
+        // AlertDialog.Builder(Context: XXX): Creates a builder for an alert dialog that uses XXX
         AlertDialog.Builder AlertB = new AlertDialog.Builder(this);
         AlertB.setMessage("Empty password is not valid.");
         AlertB.setCancelable(true);
-        AlertB.setPositiveButton("Agree",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }
+        AlertB.setPositiveButton("Agree", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) { dialog.cancel(); }
+        }
         );
-        final AlertDialog alertBox = AlertB.create();
+        //Remind user when they enter a blank password.
+        final AlertDialog messageBox = AlertB.create();
 
         //Waiting for validate button to click
         validate.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 String passwordTest = Password.getText().toString();
 
+                // alert box show up.
                 if(passwordTest.trim().length() == 0) {
-                    alertBox.show();
+                    messageBox.show();
                 }  else {
 
-                    if(isValid.ValidationStage2(passwordTest) != 5) {
-                        Check.setText("The password strength is not qualified for safety, Bad.");
-                    } else {
-                        Check.setText("The password strength is qualified for safety, Good");
+                 if(isValid.ValidationStage2(passwordTest) < 2) {
+                     Check.setText("The password strength is not qualified for safety, Bad.");
+                 } else {
+                     Check.setText("The password strength is qualified for safety, Good");
                     }
                 }
-
             }
-        });
-
-
+        }
+        );
     }
 }
