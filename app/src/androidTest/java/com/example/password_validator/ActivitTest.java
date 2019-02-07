@@ -1,7 +1,7 @@
 package com.example.password_validator;
 
 
-import android.support.test.rules.getActivityTest;
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.ClassRule;
@@ -24,7 +24,7 @@ public class ActivitTest{
 
 
     @ClassRule
-    public getActivityTest <MainActivity> MainActTest = new getActivityTest (MainActivity.class);
+    public ActivityTestRule  <MainActivity> MainActTestRule = new ActivityTestRule (MainActivity.class);
 
     //Test if the password could pass the validate,and check the strength..
     @Test
