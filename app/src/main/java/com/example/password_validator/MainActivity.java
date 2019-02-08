@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 if(passwordTest.trim().length() == 0) {
                     messageBox.show();
                 }  else {
-
+// changed
                  if(isValid.ValidationStage2(passwordTest) < 2) {
                      Check.setText("The password strength is not qualified for safety, Bad.");
                      Check.setTextColor(Color.RED);
