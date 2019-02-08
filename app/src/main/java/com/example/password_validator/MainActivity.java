@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                  if(isValid.ValidationStage2(passwordTest) < 2) {
                      Check.setText("The password strength is not qualified for safety, Bad.");
                      Check.setTextColor(Color.RED);
-
                  } else {
                      Check.setText("The password strength is qualified for safety, Good");
                      Check.setTextColor(Color.BLUE);
